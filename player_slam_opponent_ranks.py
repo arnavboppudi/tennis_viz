@@ -16,7 +16,8 @@ keep_columns = ['tourney_date', 'tourney_name', 'opp_rank', 'is_final', 'result'
 player_slam_matches = []
 for y in range(2005,2022):
     ## load matches and reduce to the target player, in first four rounds at slams
-    matches = pd.read_csv(data_prefix + 'atp_matches_' + str(y) + '.csv')
+    #matches = pd.read_csv(data_prefix + 'atp_matches_' + str(y) + '.csv')
+    matches = pd.read_csv("https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_" + str(y) + ".csv");
     matches.astype({'round': 'object'}).dtypes
     pmatches = matches.loc[(matches['winner_name'] == player) | (matches['loser_name'] == player)]
     pmatches = pmatches.loc[(pmatches['tourney_level'] == 'G') & (pmatches['score'] != 'W/O')]
