@@ -4,7 +4,9 @@ import pandas as pd
 
 ## path to repo with relevant data
 ## ( https://github.com/JeffSackmann/tennis_slam_pointbypoint )
-data_prefix = '../tennis_slam_pointbypoint/'
+#data_prefix = '../tennis_slam_pointbypoint/'
+
+data_prefix = "https://raw.githubusercontent.com/JeffSackmann/tennis_slam_pointbypoint/master/"
 
 year = '2021'
 tourney = 'wimbledon'
@@ -59,7 +61,7 @@ chart = alt.Chart(df).mark_bar().encode(
     color=alt.Color('Outcome', sort=['Double Faults', 'Return Winners', 'Return Longer', 'Serve Longer', 'Serve + 1', 'Serve Winners'])
 )
 
-out_path = 'output/' + tourney + '_sfists_return_outcomes.html'
+out_path = 'output/' + tourney + '_sfists_return_outcomes_8888.html'
 chart.save(out_path)
 
 
