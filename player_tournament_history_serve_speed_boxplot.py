@@ -6,14 +6,19 @@ import pandas as pd
 ## ( https://github.com/JeffSackmann/tennis_slam_pointbypoint )
 data_prefix = '../tennis_slam_pointbypoint/'
 
+#https://raw.githubusercontent.com/JeffSackmann/tennis_slam_pointbypoint/master/2014-wimbledon-matches.csv 
+
 player = 'Roger Federer'
 tourney = 'wimbledon'
 
 year_speeds = []
 for year in ['2014', '2015', '2016', '2017', '2018', '2019', '2021']:
-    matches = pd.read_csv(data_prefix + year + '-' + tourney + '-matches.csv')
+    #matches = pd.read_csv(data_prefix + year + '-' + tourney + '-matches.csv')
+    matches = pd.read_csv("https://raw.githubusercontent.com/JeffSackmann/tennis_slam_pointbypoint/master/"+ str(year) + "-"  + str(tourney) + "-wimbledon-matches.csv")
     matches['year'] = matches['match_id'].str[:4]
     points = pd.read_csv(data_prefix + year + '-' + tourney + '-points.csv')
+    points = pd.read_csv("https://raw.githubusercontent.com/JeffSackmann/tennis_slam_pointbypoint/master/" + str(year) + "-"  + str(tourney) + "-wimbledon-matches.csv")
+
     
     ## add match metadata to points rows
     mpoints = pd.merge(points, matches).fillna(0)
