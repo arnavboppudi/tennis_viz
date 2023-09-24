@@ -4,7 +4,8 @@ import pandas as pd
 
 ## path to repo with relevant data
 ## ( https://github.com/JeffSackmann/tennis_slam_pointbypoint )
-data_prefix = '../tennis_slam_pointbypoint/'
+#data_prefix = '../tennis_slam_pointbypoint/'
+data_prefix = "https://raw.githubusercontent.com/JeffSackmann/tennis_slam_pointbypoint/master/"
 
 year, tourney = '2021', 'wimbledon'
 
@@ -89,7 +90,7 @@ reg_line = points.transform_regression('Error Perc', 'Winner Perc').mark_line(st
 combined = (points + text + reg_line).configure_range(
     category=['#00008B', '#B0E0E6'] ##{'scheme': 'dark2'}
 )
-combined.save('output/wimbledon_wta_winners_vs_ufe.html')
+combined.save('output/wimbledon_wta_winners_vs_ufe_88888.html')
 
 
 

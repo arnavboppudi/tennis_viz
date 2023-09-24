@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-c9566e81c6a6bd59979ae9e4c730e948"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Player", "sort": ["Ashleigh Barty", "Karolina Pliskova", "Average"], "type": "nominal"}, "column": {"field": "Serve", "header": {"title": ""}, "sort": ["All Serves", "1st Serves", "2nd Serves"], "type": "nominal"}, "x": {"field": "Player", "sort": ["Ashleigh Barty", "Karolina Pliskova", "Average"], "type": "nominal"}, "y": {"axis": {"format": "%"}, "field": "Returns in play", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-c9566e81c6a6bd59979ae9e4c730e948": [{"Player": "Ashleigh Barty", "Serve": "All Serves", "Returns in play": 0.8509719222462203}, {"Player": "Ashleigh Barty", "Serve": "1st Serves", "Returns in play": 0.8193979933110368}, {"Player": "Ashleigh Barty", "Serve": "2nd Serves", "Returns in play": 0.9085365853658537}, {"Player": "Karolina Pliskova", "Serve": "All Serves", "Returns in play": 0.734341252699784}, {"Player": "Karolina Pliskova", "Serve": "1st Serves", "Returns in play": 0.7039473684210527}, {"Player": "Karolina Pliskova", "Serve": "2nd Serves", "Returns in play": 0.7924528301886793}, {"Player": "Average", "Serve": "All Serves", "Returns in play": 0.7379314470299695}, {"Player": "Average", "Serve": "1st Serves", "Returns in play": 0.6972078402366864}, {"Player": "Average", "Serve": "2nd Serves", "Returns in play": 0.8125741399762753}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
